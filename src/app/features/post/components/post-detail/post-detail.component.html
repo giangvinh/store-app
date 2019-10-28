@@ -1,0 +1,39 @@
+<div class="container" *ngIf="post$ | async">
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <div class="card" style="margin-top: 100px;">
+          <div class="card-body">
+            <input
+              type="hidden"
+              class="form-control"
+              [value]="(post$ | async)?.id"
+              #id
+            />
+            <input
+              type="hidden"
+              class="form-control"
+              [value]="(post$ | async)?.userId"
+              #userId
+            />
+            <input
+              class="form-control"
+              [value]="(post$ | async)?.title"
+              #title
+            />
+            <br />
+            <textarea
+              class="form-control"
+              #body
+              [value]="(post$ | async)?.body"
+            >
+            </textarea>
+            <button class="btn btn-success" (click)="onSubmit($event)">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
